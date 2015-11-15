@@ -1,0 +1,30 @@
+{
+	"name": "foo",
+	"version": "0.0.0",
+	"description": "A wrapper around Q.async that converts to a standard promise.",
+	"main": "foo.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/j50n/foo.git"
+	},
+	"keywords": [
+		"Q",
+		"async",
+		"promise",
+		"generator",
+		"yield"
+	],
+	"author": "Jason Smith",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/j50n/foo/issues"
+	},
+	"homepage": "https://github.com/j50n/foo#readme",
+	"dependencies": {
+		"duct-tape": "~0.0",
+		"q": "~1.4"
+	}
+}

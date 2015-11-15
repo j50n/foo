@@ -1,0 +1,15 @@
+.DS_Store
+.idea/
+.c9revisions/
+*.sublime-project
+*.sublime-workspace
+node_modules/
+out/
+docs/
+npm-debug.log
+.*.swp
+.*.swo
+temp
+logs
+tags
+.tern-project
