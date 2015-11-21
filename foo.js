@@ -46,6 +46,7 @@
 	"use strict";
 
 	const Q = require( "q" );
+	const Promise = require( "bluebird" );
 
 	/**
 	 * Convert a generator function to a deferred function (promise-based), allowing the use of `yield` within the function
@@ -64,14 +65,4 @@
 			} );
 		};
 	};
-
-	/*
-	 * Force failure on unhandled promise rejections.
-	 */
-	process.on( "unhandledRejection", function ( reason, p ) {
-		console.error( "Unhandled rejection." );
-		console.error( p );
-		console.error( reason.stack );
-		process.exit( 1 );
-	} );
 } )();

@@ -1,2 +1,2 @@
 # foo
-A wrapper around Q.async that converts back to standard promises.
+A wrapper around Q.async that converts to Bluebird promises.
