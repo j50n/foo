@@ -1,6 +1,6 @@
 {
 	"name": "foo-baz",
-	"version": "0.0.0",
+	"version": "0.0.2",
 	"description": "A wrapper around Q.async that converts to a standard promise.",
 	"main": "foo.js",
 	"scripts": {

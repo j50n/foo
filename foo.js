@@ -64,4 +64,14 @@
 			} );
 		};
 	};
+
+	/*
+	 * Force failure on unhandled promise rejections.
+	 */
+	process.on("unhandledRejection", function(reason, p){
+		console.error("Unhandled rejection.");
+		console.error(p);
+		console.error(reason.stack);
+		process.exit(1);
+	});
 } )();
