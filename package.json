@@ -1,7 +1,7 @@
 {
 	"name": "foo-baz",
-	"version": "0.0.3",
-	"description": "A wrapper around Q.async that converts to a Bluebird promise.",
+	"version": "0.0.4",
+	"description": "A thin wrapper around Bluebird.coroutine, with friendly defaults.",
 	"main": "foo.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -24,8 +24,7 @@
 	},
 	"homepage": "https://github.com/j50n/foo#readme",
 	"dependencies": {
-		"bluebird": "~3.0",
-		"q": "~1.4"
+		"bluebird": "~3.0"
 	},
 	"devDependencies": {
 		"duct-tape": "0.0.1"

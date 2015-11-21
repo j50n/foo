@@ -1,9 +1,15 @@
 /**
  * Convert a generator function to a deferred function (promise-based), allowing the use of `yield` within the function
- * to reduce callback nesting.
+ * to reduce callback nesting. This has evolved to be a thin wrapper around
+ * [Bluebird.coroutine](http://bluebirdjs.com/docs/api/promise.coroutine.html). It is set up with long-stack-traces
+ * and has a simple custom yield-handler to allow it to yield to normal values - as well as promises.
  *
  * This library is similar to [co](https://www.npmjs.com/package/co) and
  * [Q.async](https://github.com/kriskowal/q/tree/v1/examples/async-generators).
+ *
+ * The original version of this was based on `Q.async` and standard promises. The Bluebird version
+ * handles uncaught errors (rejections) better and also supports long stack traces.
+ * The 'foo' library simply sets up the defaults a little differently than out-of-the-box Bluebird.
  *
  * #### Example
  *
@@ -45,8 +51,11 @@
 ( function () {
 	"use strict";
 
-	const Q = require( "q" );
 	const Promise = require( "bluebird" );
+	Promise.longStackTraces();
+	Promise.coroutine.addYieldHandler( function ( value ) {
+		return Promise.resolve( value );
+	} );
 
 	/**
 	 * Convert a generator function to a deferred function (promise-based), allowing the use of `yield` within the function
@@ -56,13 +65,5 @@
 	 * @param generator The generator function to wrap.
 	 * @returns {function.Promise} A function that returns a standard promise. The value of the promise is the return value from the wrapped generator function.
 	 */
-	module.exports = function foo( generator ) {
-		return function () {
-			const fn = Q.async( generator );
-			const promise = fn.apply( this, Array.prototype.slice.call( arguments ) );
-			return new Promise( function ( resolve, reject ) {
-				return promise.then( resolve, reject );
-			} );
-		};
-	};
+	module.exports = Promise.coroutine;
 } )();

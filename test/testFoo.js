@@ -1,13 +1,12 @@
 /**
- * `foo` is a wrapper around `Q.async` that adapts the promise type to standard promises.
+ * `foo` is a thin wrapper around `Bluebird.coroutine`.
  * This set of tests verifies all the common use cases, including:
  *
  * * Yielding values not wrapped in promises; synchronous
  * * Yielding values wrapped in promises; both synchronous and asynchronous
  * * Proper handling of thrown errors due to a rejected promise through a yield
- * * The result of calling a foo-wrapped function is a Bluebird promise, not a Q promise.
  *
- * I wanted to make sure that this version behaves *exactly* the way we expect it to.
+ * I wanted to make sure that this version behaves *exactly* the way I expect it to.
  * No more surprises!
  *
  * @name testFoo.js
