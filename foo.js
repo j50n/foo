@@ -48,10 +48,16 @@
  * @name foo.js
  * @author Jason Smith
  */
+
 ( function () {
 	"use strict";
 
-	const Promise = require( "bluebird" );
+	/*
+	 * Override the global Promise object.
+	 */
+	/*jshint -W020 */
+	Promise = require( "bluebird" );
+
 	Promise.longStackTraces();
 	Promise.coroutine.addYieldHandler( function ( value ) {
 		return Promise.resolve( value );

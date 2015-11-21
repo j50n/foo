@@ -1,6 +1,6 @@
 {
 	"name": "foo-baz",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "A thin wrapper around Bluebird.coroutine, with friendly defaults.",
 	"main": "foo.js",
 	"scripts": {
